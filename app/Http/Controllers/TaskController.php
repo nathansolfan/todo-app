@@ -28,16 +28,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $response = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string'
         ]);
+        // dd($response);
 
-        Task::create();
-        return redirect()->route('create')->with('success', 'Crated?');
-
-        // dd($request->all());
-
+        Task::create($response);
+        return redirect()->route('index')->with('success', 'Crated?');
     }
 
     /**
