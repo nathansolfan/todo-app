@@ -12,7 +12,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $tasks = Task::all();
+
+        return view('index', compact('tasks'));
     }
 
     /**
@@ -32,7 +34,7 @@ class TaskController extends Controller
             'title' => 'required|string',
             'description' => 'required|string'
         ]);
-        // dd($response);
+
 
         Task::create($response);
         return redirect()->route('index')->with('success', 'Crated?');
@@ -41,9 +43,11 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id )
     {
-        //
+        $task = Task::findOrFail($id);
+
+        return view('show', compact('task'));
     }
 
     /**
