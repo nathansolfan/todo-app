@@ -14,7 +14,7 @@
         <h1>TO-DO APP</h1>
 
         <form
-        action=" {{route('store')}}"
+        action=" {{route('tasks.store')}}"
         method="POST"
         >
         @csrf

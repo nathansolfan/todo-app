@@ -11,11 +11,11 @@
 <body>
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
     <p>Hello</p>
-    <a href="/create">Go home</a>
+    <a href=" {{route('tasks.create')}}">Go home</a>
     @foreach ($tasks as $task)
     <div>
         <p> {{ $task->title }} </p>
-        <a href=" {{ route('show', $task->id)}} ">View Tasks</a>
+        <a href=" {{ route('tasks.show', $task->id)}} ">View Tasks</a>
     </div>
 
     @endforeach
