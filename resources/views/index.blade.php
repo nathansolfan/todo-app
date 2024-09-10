@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite('resources/css/app.css')
+<x-layout>
+    <div class="max-w-4xl mx-auto p-6 bg-white">
 
-</head>
-<body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <p>Hello</p>
-    <a href=" {{route('tasks.create')}}">Go home</a>
+    <h1 class="text-gray-600 mb-4 font-bold text-4xl">The tasks:</h1>
+    <a href="{{route('tasks.create')}}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded mb-6 inline-block">Create Task</a>
     @foreach ($tasks as $task)
-    <div>
-        <p> {{ $task->title }} </p>
-        <a href=" {{ route('tasks.show', $task->id)}} ">View Tasks</a>
+    <div class="mt-6 space-y-4">
+    <div class="p-4 flex justify-between items-center">
+        <p class="text-lg font-semibold"> {{ $task->title }} </p>
+        <a href="{{ route('tasks.show', $task->id)}}" class="text-blue-500 ">View Tasks</a>
     </div>
-
+    </div>
     @endforeach
-
-</body>
-</html>
+    </div>
+</x-layout>
